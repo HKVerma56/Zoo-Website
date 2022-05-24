@@ -1,0 +1,113 @@
+
+<?php
+include 'conn.php';
+if(isset($_POST['done']))
+{
+  $user=$_POST['username'];
+  $pass=$_POST['password'];
+  $q="select * from admin where username='$user' and password='$pass' ;";
+  $res=mysqli_query($con,$q);
+  $q1=mysqli_fetch_array($res);
+  if($q1)
+  {
+    header('Location:DashBoard.html');
+  }
+  else {
+    echo '<script>alert("Wrong Username or Password")</script>';
+  }
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="logo/logo.png" type="image/icon type">
+  <title>Zoo-AdminLogin</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="myScript.js"></script>
+  <style>
+  #login {
+     background:#f4da01;
+     color:black;
+     border:1pxsolid#eee;
+     border-radius:20px;
+     box-shadow:5px5px5px#eee;
+     text-shadow:none;
+     padding: 20px 20px 20px 20px;
+     font-size:x-large;
+}
+#login:hover {
+     background:black;
+     color:white;
+     border:1pxsolid#eee;
+     border-radius:20px;
+     box-shadow:5px5px5px#000000;
+     text-shadow:none;
+     padding:  20px 20px 20px 20px;
+     font-size:x-large;
+}
+#username{
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid black;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+#password{
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid black;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+  </style>
+
+</head>
+
+<body>
+  <div class= topnav>
+    <a id="icon" href="index.html"> <img src="logo/logo.png" height=80px> </a>
+    <a  href="index.html">Home</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="About.html">About</a>
+    <a class="active" href="Admin.html">Admin Login</a>
+    </div>
+
+    <div class="home" id="home">
+      <div style="float: left;padding:20px" width='50%'>
+        <br>
+        <h1 style="font-size:xxx-large;">
+          Admin Login Page</h1>
+          <p style="font-size:xx-large;">Login using your uresname and password.</p>
+
+            <form method="post" action="#">
+              <label class="username" >  <p style="font-size:x-large;">Username:</label>
+              <input class="username" type="text" id="username" name="username"></p>
+              <label class="password">  <p style="font-size:x-large;">Password: </label>
+              <input class="password" type="password" id="password" name="password"></p>
+              <button class="btn btn-success"  id="login"type="submit" name="done" onclick="window.location.href='DashBoard.html';">Submit</button>
+            </form>
+
+
+
+
+      </div>
+      <div style="text-align: right;">
+      <img src="images/leo.png"  width="50%"></div>
+
+  </div>
+
+
+      <div class="container3">
+        <center>DBMS mini project by Harshit Kant Verma , Rahul Saraf And Santosh </center></div>
+  </body>
+  </html>

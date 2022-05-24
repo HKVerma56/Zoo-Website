@@ -1,0 +1,52 @@
+<form method="post">
+        <label class="agt_idl">Agent Id</label>
+        <input class="agt_id" type="number" name="agt_id"><br><br>
+        <label class="full_name">Full Name</label>
+        <input class="name" type="text" name="name"><br><br>
+        <label class="dobl">Date Of Birth</label>
+        <input class="dob" type="date" name="dob"><br><br>
+        <label class="adharl">Adhar Number</label>
+        <input class="adhar" type="number" name="adhar"><br><br>
+        <label class="phnol">Phone Number</label>
+        <input class="phno" type="number" name="phno"><br><br>
+        <label class="emaill">Email Id</label>
+        <input class="email" type="email" name="email"><br><br>
+        <label class="sal">Salary</label>
+        <input class="sal" type="number" name="sal"><br><br>
+        <label class="brn">Branch Id</label>
+        <input class="brn" type="number" name="brn"><br><br>
+        <label class="doj">Date of Joining</label>
+        <input class="doj" type="date" name="doj"><br><br>
+        <button class="btn btn-success" type="submit" name="done">Submit</button>
+
+
+
+
+
+
+
+
+
+        <label for="E_id">  <p style="font-size:x-large;">Employee ID</label>
+        <input type="text" id="E_id" name="Eid"><br><br>
+        <label for="A_id">Animal id (*if required)</label>
+        <input type="text" id="A_id" name="A_id"><br><br>
+        <label for="E_name">Name</label>
+        <input type="text" id="E_name" name="E_name"><br><br>
+        <label for="E_gender">Employees's Gender</label>
+        <select id="E_gender" name="E_gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="others">Others</option>
+        </select><br><br>
+        <label for="E_dob">  <p style="font-size:x-large;">Date of Birth: </label>
+        <input type="date" id="E_dob" name="E_dob"><br><br>
+        <label for="E_phone">Phone</label>
+        <input type="text" id="E_phone" name="E_phone"><br><br>
+        <label for="E_salary">Salary</label>
+        <input type="text" id="E_salary" name="E_salary"><br><br>
+        <label for="E_address">Address</label>
+        <input type="text" id="E_address" name="E_address"><br><br>
+        <label for="E_designation">Designation</label>
+        <input type="text" id="E_designation" name="E_designation"><br><br>
+        <input id= "Book" type="submit" value="Submit" >

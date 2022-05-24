@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="logo/logo.png" type="image/icon type">
+  <title>Zoo-Ticket</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="myScript.js"></script>
+  <style>
+  input[type="radio"] {
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid Black;
+    border-radius: 100%;
+  }
+
+  #No_of_person{
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  #Book {
+     background:#f4da01;
+     color:black;
+     border:1pxsolid#eee;
+     border-radius:20px;
+     box-shadow:5px5px5px#eee;
+     text-shadow:none;
+     padding: 20px 20px 20px 20px;
+     font-size:x-large;
+  }
+  #Book:hover {
+     background:black;
+     color:white;
+     border:1pxsolid#eee;
+     border-radius:20px;
+     box-shadow:5px5px5px#000000;
+     text-shadow:none;
+     padding:  20px 20px 20px 20px;
+     font-size:x-large;
+  }
+  #date {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  #Time{
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  #T_type{
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  </style>
+</head>
+
+<body>
+  <div class= topnav>
+    <a id="icon" href="index.html"> <img src="logo/logo.png" height=80px> </a>
+    <a href="index.html">Home</a>
+
+    </div>
+
+    <div class="home" id="home">
+      <div style="float: left;padding:20px" width='50%'>
+        <br>
+        <h1 style="font-size:xxx-large;">
+          Thank You</h1>
+          <p style="font-size:xx-large;">Please note your Ticket ID</p>
+
+
+          <?php
+          include 'conn.php';
+          $q1="select max(t_id) as t_id from `ticketbooking` ;";
+          $quey = mysqli_query($con,$q1);
+          $a=mysqli_fetch_array($quey);
+          $b=(int)$a['t_id'];
+          echo $b;
+          ?>
+
+
+
+
+
+      </div>
+      <div style="text-align: right;">
+      <img src="images/mon.png"  width="50%"></div>
+
+  </div>
+
+
+      <div class="container3">
+        <center>DBMS mini project by Harshit Kant Verma , Rahul Saraf And Santosh </center></div>
+  </body>
+  </html>

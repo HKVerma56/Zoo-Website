@@ -1,0 +1,69 @@
+body {
+        background-color:#f4da01;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: large;
+        text-decoration-color:black;
+}
+.mainline{font-size:81px;}
+
+
+
+/* Style the links inside the navigation bar */
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color:#f4da01;
+  overflow: hidden;
+  font-size: inherit;
+  color: black;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color:black;
+  color: white;
+}
+a#icon {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: fit-content;
+   background-color:#f4da01;
+   color: white;
+}
+
+a#tickets :hover{
+   width:220px;
+}
+
+
+.container3{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #141513;
+    border-top: 1px solid gray;
+    color: #696969;
+    font-size: small;
+    position:fixed;
+    height:15px;
+    bottom:0;
+  }

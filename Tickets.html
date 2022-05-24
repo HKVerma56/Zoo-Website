@@ -1,0 +1,168 @@
+<?php
+include 'conn.php';
+if(isset($_POST['done']))
+{
+ $No_of_person=$_POST['No_of_person'];
+ $Date=$_POST['date'];
+ $Time=$_POST['Time'];
+ $T_type=$_POST['T_type'];
+if($Time=="09:00:00"){
+  $Time_out="11:00:00";
+  $E_id="401";
+  $V_id="01";
+}
+elseif ($Time=="12:00:00"){
+  $Time_out="14:00:00";
+  $E_id="402";
+  $V_id="02";
+}
+else{
+  $Time_out="17:00:00";
+  $E_id="403";
+  $V_id="03";
+}
+$price=(int)$No_of_person*50;
+ $q="INSERT INTO `ticketbooking`( `t_type`, `no_of_persons`, `t_date`, `t_time`, `price`) VALUES ('$T_type','$No_of_person','$Date','$Time','$price');";
+ mysqli_query($con,$q);
+ $q1="select max(t_id) as t_id from `ticketbooking` ;";
+ $quey = mysqli_query($con,$q1);
+ $a=mysqli_fetch_array($quey);
+ $b=(int)$a['t_id'];
+ if($T_type=="Saffari"){
+$q2="INSERT INTO `saffari`(`vehicle_no`, `t_id`, `date`, `time_in`, `time_out`) VALUES ('$V_id','$b','$Date','$Time','$Time_out');";
+mysqli_query($con,$q2);}
+
+header('Location:tickDet.html');
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="logo/logo.png" type="image/icon type">
+  <title>Zoo-Ticket</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="myScript.js"></script>
+  <style>
+
+
+  #No_of_person{
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  #Book {
+     background:#f4da01;
+     color:black;
+     border:1pxsolid#eee;
+     border-radius:20px;
+     box-shadow:5px5px5px#eee;
+     text-shadow:none;
+     padding: 20px 20px 20px 20px;
+     font-size:x-large;
+  }
+  #Book:hover {
+     background:black;
+     color:white;
+     border:1pxsolid#eee;
+     border-radius:20px;
+     box-shadow:5px5px5px#000000;
+     text-shadow:none;
+     padding:  20px 20px 20px 20px;
+     font-size:x-large;
+  }
+  #date {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  #Time{
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  #T_type{
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  </style>
+</head>
+
+<body>
+  <div class= topnav>
+    <a id="icon" href="index.html"> <img src="logo/logo.png" height=80px> </a>
+    <a href="index.html">Go Back</a>
+
+    </div>
+
+    <div class="home" id="home">
+      <div style="float: left;padding:20px" width='50%'>
+        <br>
+        <h1 style="font-size:xxx-large;">
+          Ticket Counter</h1>
+          <p style="font-size:xx-large;">Online Ticket Booking Portal</p>
+          <p style="font-size:x-large;">Fill the following details.<br><br>
+
+            <form method="post">
+              <label for="No_of_person">  <p style="font-size:x-large;">Number of people:</label>
+              <input type="number" id="No_of_person" name="No_of_person"></p>
+              <label for="Date">  <p style="font-size:x-large;">Date: </label>
+              <input type="date" id="date" name="date"><br><br>
+              <label for="Time">Time: </label>
+              <select id="Time" name="Time">
+                <option value="09:00:00">09:00</option>
+                <option value="12:00:00">12:00</option>
+                <option value="15:00:00">15:00</option>
+              </select>
+              <br><br>
+              <label for="T_type">Ticket Type: </label>
+              <select id="T_type" name="T_type">
+                <option value="Non_Saffari">Non_Saffari</option>
+                <option value="Saffari">Saffari</option>
+              </select><br><br>
+            <button class="btn btn-success"  id="Book" type="submit" name="done">Submit</button>
+              </form>
+
+
+
+              </p>
+
+      </div>
+      <div style="text-align: right;">
+      <img src="images/mon.png"  width="50%"></div>
+
+  </div>
+
+
+      <div class="container3">
+        <center>DBMS mini project by Harshit Kant Verma , Rahul Saraf And Santosh </center></div>
+  </body>
+  </html>
